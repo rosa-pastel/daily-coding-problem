@@ -6,11 +6,15 @@
 
 function findMissingInteger(array) {
   let missing = 1;
-  array.sort().map((num) => {
-    if (num == missing) {
-      missing++;
-    }
-  });
+  array
+    .sort((a, b) => {
+      return a - b;
+    })
+    .map((num) => {
+      if (num == missing) {
+        missing++;
+      }
+    });
   return missing;
 }
 console.log(findMissingInteger([1, 2, 0])); //3
